@@ -20,6 +20,12 @@ app.get("/", async(req, res) => {
     res.render("index", {blogposts: blogposts} );
 });
 
+app.get("/post/:id", async(req, res) => {
+    const blogpost = await BlogPost.findById(req.params.id);
+    console.log(blogpost);
+    res.render("post", {blogpost} );
+});
+
 app.get("/about", (req, res) => {
     res.render("about");
 });
