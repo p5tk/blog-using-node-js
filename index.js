@@ -16,7 +16,8 @@ mongoose.connect("mongodb://localhost/my_database", {useNewUrlParser: true});
 
 app.get("/", async(req, res) => {
     const blogposts = await BlogPost.find({});
-    res.render("index", {blogposts} );
+    console.log(blogposts);
+    res.render("index", {blogposts: blogposts} );
 });
 
 app.get("/about", (req, res) => {
